@@ -39,7 +39,7 @@ LangChain is a framework for developing applications powered by language models.
 
 ## Screenshot
 
-![Basic Chat Output](../../screenshots/01_basic_chat.png)
+<img src="../../screenshots/01_basic_chat.png" alt="Basic Chat Output" width="600"/>
 
 ## Code Explanation
 

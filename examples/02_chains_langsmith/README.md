@@ -49,9 +49,19 @@ its functionality without permanently modifying it...
 View traces at: https://smith.langchain.com
 ```
 
-## Screenshot
+## Screenshots
 
-![Chain with LangSmith](../../screenshots/02_chains_langsmith.png)
+### Terminal Output
+<img src="../../screenshots/01_basic_chat.png" alt="Chain Terminal Output" width="600"/>
+
+### LangSmith Tracing Dashboard
+<img src="../../screenshots/02_chains_langsmith.png" alt="LangSmith Tracing Interface" width="700"/>
+
+The LangSmith dashboard shows:
+- **Trace timeline**: See how long each step took (1.74s total)
+- **Input/Output**: View the question and response
+- **Chain components**: ChatOpenAI model execution details
+- **Token usage**: 83 tokens used, cost tracking
 
 ## LangSmith Setup (Optional)
 

@@ -46,6 +46,8 @@ cd examples/01_basic_chat
 python main.py
 ```
 
+<img src="screenshots/01_basic_chat.png" alt="Basic Chat" width="500"/>
+
 [See detailed README](examples/01_basic_chat/README.md)
 
 ### 2. Chains with LangSmith
@@ -55,6 +57,8 @@ Build a chain using LCEL and integrate with LangSmith for tracing.
 cd examples/02_chains_langsmith
 python main.py
 ```
+
+<img src="screenshots/02_chains_langsmith.png" alt="LangSmith Tracing" width="600"/>
 
 [See detailed README](examples/02_chains_langsmith/README.md)
 
