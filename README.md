@@ -26,8 +26,7 @@ cp .env.example .env
 langchain-portfolio/
 ├── examples/
 │   ├── 01_basic_chat/          # Simple chat completion
-│   ├── 02_prompt_templates/    # Working with prompts
-│   └── 03_chains/              # Building chains
+│   └── 02_chains_langsmith/    # Chains with LangSmith tracing
 ├── screenshots/                # Demo screenshots
 ├── venv/                       # Virtual environment (not in git)
 ├── .env                        # API keys (not in git)
@@ -48,6 +47,16 @@ python main.py
 ```
 
 [See detailed README](examples/01_basic_chat/README.md)
+
+### 2. Chains with LangSmith
+Build a chain using LCEL and integrate with LangSmith for tracing.
+
+```bash
+cd examples/02_chains_langsmith
+python main.py
+```
+
+[See detailed README](examples/02_chains_langsmith/README.md)
 
 ## 🛠️ Technologies
 
