@@ -26,7 +26,8 @@ cp .env.example .env
 langchain-portfolio/
 ├── examples/
 │   ├── 01_basic_chat/          # Simple chat completion
-│   └── 02_chains_langsmith/    # Chains with LangSmith tracing
+│   ├── 02_chains_langsmith/    # Chains with LangSmith tracing
+│   └── 03_agent_tavily_search/ # Agent with Tavily search tool
 ├── screenshots/                # Demo screenshots
 ├── venv/                       # Virtual environment (not in git)
 ├── .env                        # API keys (not in git)
@@ -61,6 +62,18 @@ python main.py
 <img src="screenshots/02_chains_langsmith.png" alt="LangSmith Tracing" width="600"/>
 
 [See detailed README](examples/02_chains_langsmith/README.md)
+
+### 3. Agent with Tavily Search
+Build an agent that uses Tavily search as a tool, with LangSmith tracing.
+
+```bash
+cd examples/03_agent_tavily_search
+python main.py
+```
+
+<img src="screenshots/03_agent_tavily_search.png" alt="Agent with Tavily Search" width="600"/>
+
+[See detailed README](examples/03_agent_tavily_search/README.md)
 
 ## 🛠️ Technologies
 
