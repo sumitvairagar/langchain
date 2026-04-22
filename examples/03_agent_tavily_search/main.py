@@ -2,8 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.tavily_search import TavilySearchResults
-from langchain.agents import create_tool_calling_agent, AgentExecutor
-from langchain.prompts import ChatPromptTemplate
+from langgraph.prebuilt import create_react_agent
 
 # Load environment variables from .env file (API keys, etc.)
 load_dotenv()
@@ -14,18 +13,13 @@ def main():
     model = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
 
     # Step 2: Set up Tavily search as a tool
+    # TavilySearchResults uses the TAVILY_API_KEY env variable automatically
     search_tool = TavilySearchResults(max_results=5)
 
-    # Step 3: Define the agent's prompt
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful research assistant. Use the search tool to find current information. Be concise and well-structured in your responses."),
-        ("user", "{input}"),
-        ("placeholder", "{agent_scratchpad}")
-    ])
-
-    # Step 4: Create the agent and executor
-    agent = create_tool_calling_agent(model, [search_tool], prompt)
-    executor = AgentExecutor(agent=agent, tools=[search_tool], verbose=True)
+    # Step 3: Create a ReAct agent using LangGraph
+    # The agent decides WHEN to call a tool and WHAT to search for
+    # It follows a loop: think → act (tool call) → observe → repeat
+    agent = create_react_agent(model, [search_tool])
 
     # Three real-world queries that showcase the agent's capabilities
     queries = [
@@ -40,10 +34,12 @@ def main():
         print("=" * 60)
         print(f"\n💬 {question}\n")
 
-        response = executor.invoke({"input": question})
+        # invoke() runs the full agent loop and returns all messages
+        result = agent.invoke({"messages": [("user", question)]})
+        answer = result["messages"][-1].content
 
-        print("\n" + "-" * 60)
-        print(f"✅ Answer:\n{response['output']}")
+        print("-" * 60)
+        print(f"✅ Answer:\n{answer}")
         print("=" * 60)
 
     # LangSmith tracing status

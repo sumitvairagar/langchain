@@ -27,7 +27,8 @@ langchain-portfolio/
 ├── examples/
 │   ├── 01_basic_chat/          # Simple chat completion
 │   ├── 02_chains_langsmith/    # Chains with LangSmith tracing
-│   └── 03_agent_tavily_search/ # Agent with Tavily search tool
+│   ├── 03_agent_tavily_search/ # Agent with Tavily search tool
+│   └── 04_agent_structured_output/ # Structured output with Pydantic
 ├── screenshots/                # Demo screenshots
 ├── venv/                       # Virtual environment (not in git)
 ├── .env                        # API keys (not in git)
@@ -74,6 +75,18 @@ python main.py
 <img src="screenshots/03_agent_tavily_search.png" alt="Agent with Tavily Search" width="600"/>
 
 [See detailed README](examples/03_agent_tavily_search/README.md)
+
+### 4. Structured Output with Pydantic
+Parse agent responses into clean, typed JSON using Pydantic models and `with_structured_output()`.
+
+```bash
+cd examples/04_agent_structured_output
+python main.py
+```
+
+<img src="screenshots/04_agent_structured_output.png" alt="Structured Output with Pydantic" width="600"/>
+
+[See detailed README](examples/04_agent_structured_output/README.md)
 
 ## 🛠️ Technologies
 
